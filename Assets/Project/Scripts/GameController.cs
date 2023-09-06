@@ -5,6 +5,9 @@ public class GameController : MonoBehaviour {
     [SerializeField]
     private GameSetup _gameSetup;
 
+    [SerializeField]
+    private Baker _baker;
+
     private RootSystems _rootSystems;
 
     private void Start() {
@@ -14,9 +17,7 @@ public class GameController : MonoBehaviour {
 
         _rootSystems.Initialize();
 
-        var entity = contexts.game.CreateEntity();
-        entity.AddHealth(100);
-        entity.AddGameSetup(_gameSetup);
+        _baker.Bake(contexts.game);
     }
 
     private void Update() {
