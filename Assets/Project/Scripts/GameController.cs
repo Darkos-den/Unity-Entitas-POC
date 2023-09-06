@@ -38,6 +38,7 @@ public class GameController : MonoBehaviour {
 
         entity.AddTurnState(TurnState.Krestik);
         entity.AddSelectedBuffer(new List<int>(), new List<int>());
+        entity.AddGameState(GameStage.Idle);
     }
 
     private void InitBoardItemResources(GameContext context) {

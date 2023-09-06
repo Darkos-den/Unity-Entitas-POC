@@ -13,7 +13,6 @@ public sealed class ItemRenderSystem : ReactiveSystem<GameEntity> {
     protected override void Execute(List<GameEntity> entities) {
         var resources = _context.boardItemResources;
 
-        Debug.Log(">> " + entities.Count);
         foreach (var entity in entities) {
             var color = Color.white;
             entity.view.Value.color = color;
@@ -27,7 +26,6 @@ public sealed class ItemRenderSystem : ReactiveSystem<GameEntity> {
     }
 
     protected override bool Filter(GameEntity entity) {
-        Debug.Log(">> filter");
         return entity.hasItemState && entity.itemState.State != BoardItemState.Empty;
     }
 

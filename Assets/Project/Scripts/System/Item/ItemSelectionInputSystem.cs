@@ -26,6 +26,7 @@ public sealed class ItemSelectionInputSystem : IExecuteSystem {
                         buffer.Noliki.Add(entity.boardIndex.Value);
                         entity.ReplaceItemState(BoardItemState.Nolik);
                     }
+                    _context.ReplaceSelectedBuffer(buffer.Krestiki, buffer.Noliki);
                     entity.isHighlighted = false;
 
                     TurnState newState;

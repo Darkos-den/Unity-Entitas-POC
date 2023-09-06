@@ -13,18 +13,32 @@ public sealed class WinCheckSystem : ReactiveSystem<GameEntity> {
     }
 
     protected override void Execute(List<GameEntity> entities) {
+        Debug.Log(">>> trigger");
+
+        var gameState = _context.gameStateEntity;
+        if(gameState.gameState.Stage != GameStage.Progress) {
+            return;
+        }
+
         var turn = _context.turnState;
 
         var buffer = entities.First();
+        var total = buffer.selectedBuffer.Noliki.Count + buffer.selectedBuffer.Krestiki.Count;
 
         bool isWin;
         if (turn.State == TurnState.Nolik) {
-            isWin = CheckWinState(buffer.selectedBuffer.Noliki);
-        } else {
             isWin = CheckWinState(buffer.selectedBuffer.Krestiki);
+            Debug.Log(">> krestiki: " + isWin);
+        } else {
+            isWin = CheckWinState(buffer.selectedBuffer.Noliki);
+            Debug.Log(">> noliki: " + isWin);
         }
 
-        //todo
+        if (isWin) {
+            gameState.ReplaceGameState(GameStage.Win);
+        } else if(total == 9) {
+            gameState.ReplaceGameState(GameStage.Draw);
+        }
     }
 
     private bool CheckWinState(List<int> items) {

@@ -10,5 +10,8 @@ public class RootSystems : Feature {
 
         Add(new ItemSelectionInputSystem(context));
         Add(new ItemRenderSystem(context));
+
+        Add(new InitializeGameSystem(context));
+        Add(new WinCheckSystem(context));
     }
 }

@@ -9,6 +9,8 @@
 public sealed class GameEventSystems : Feature {
 
     public GameEventSystems(Contexts contexts) {
+        Add(new AnyGameStateEventSystem(contexts)); // priority: 0
+        Add(new ItemStateEventSystem(contexts)); // priority: 0
         Add(new AnyTurnChangedEventSystem(contexts)); // priority: 0
         Add(new AnyTurnStateEventSystem(contexts)); // priority: 0
     }

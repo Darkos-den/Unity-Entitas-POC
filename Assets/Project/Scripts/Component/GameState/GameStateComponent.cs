@@ -1,18 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+using Entitas;
+using Entitas.CodeGeneration.Attributes;
 
-public class GameStateComponent : MonoBehaviour
-{
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+public enum GameStage {
+    Idle, Progress, Win, Draw
+}
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+[Game, Unique, Event(EventTarget.Any)]
+public sealed class GameStateComponent : IComponent {
+
+    public GameStage Stage;
 }
