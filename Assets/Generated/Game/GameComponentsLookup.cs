@@ -9,50 +9,44 @@
 public static class GameComponentsLookup {
 
     public const int AnyGameStateListener = 0;
-    public const int AnyTurnChangedListener = 1;
-    public const int AnyTurnStateListener = 2;
-    public const int BoardIndex = 3;
-    public const int BoardItemResources = 4;
-    public const int GameState = 5;
-    public const int Highlighted = 6;
+    public const int AnyTurnStateListener = 1;
+    public const int BoardIndex = 2;
+    public const int BoardItemResources = 3;
+    public const int GameState = 4;
+    public const int Highlighted = 5;
+    public const int HighlightedListener = 6;
     public const int ItemState = 7;
     public const int ItemStateListener = 8;
     public const int SelectedBuffer = 9;
-    public const int TurnChanged = 10;
-    public const int TurnState = 11;
-    public const int View = 12;
+    public const int TurnState = 10;
 
-    public const int TotalComponents = 13;
+    public const int TotalComponents = 11;
 
     public static readonly string[] componentNames = {
         "AnyGameStateListener",
-        "AnyTurnChangedListener",
         "AnyTurnStateListener",
         "BoardIndex",
         "BoardItemResources",
         "GameState",
         "Highlighted",
+        "HighlightedListener",
         "ItemState",
         "ItemStateListener",
         "SelectedBuffer",
-        "TurnChanged",
-        "TurnState",
-        "View"
+        "TurnState"
     };
 
     public static readonly System.Type[] componentTypes = {
         typeof(AnyGameStateListenerComponent),
-        typeof(AnyTurnChangedListenerComponent),
         typeof(AnyTurnStateListenerComponent),
         typeof(BoardIndexComponent),
         typeof(BoardItemResourcesComponent),
         typeof(GameStateComponent),
         typeof(HighlightedComponent),
+        typeof(HighlightedListenerComponent),
         typeof(ItemStateComponent),
         typeof(ItemStateListenerComponent),
         typeof(SelectedBufferComponent),
-        typeof(TurnChangedComponent),
-        typeof(TurnStateComponent),
-        typeof(ViewComponent)
+        typeof(TurnStateComponent)
     };
 }

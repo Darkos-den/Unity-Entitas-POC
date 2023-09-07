@@ -33,6 +33,7 @@ public sealed class InitializeGameSystem : ReactiveSystem<GameEntity> {
             }
 
             _context.ReplaceGameState(GameStage.Progress);
+            _context.ReplaceSelectedBuffer(new(), new());
         }
     }
 }
